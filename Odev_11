@@ -1,0 +1,28 @@
+--Odev_11
+-- 1. actor ve customer tablolarındaki first_name verilerinin birleşimi (tekrarsız)
+SELECT first_name FROM actor
+UNION
+SELECT first_name FROM customer;
+
+-- 2. actor ve customer tablolarındaki first_name verilerinin kesişimi (tekrarsız)
+SELECT first_name FROM actor
+INTERSECT
+SELECT first_name FROM customer;
+
+-- 3. actor tablosunda olup customer tablosunda olmayan first_name verileri (tekrarsız)
+SELECT first_name FROM actor
+EXCEPT
+SELECT first_name FROM customer;
+
+-- 4. actor ve customer tablolarındaki first_name verilerinin birleşimi (tekrar edenlerle)
+SELECT first_name FROM actor
+UNION ALL
+SELECT first_name FROM customer;
+-- 5. actor ve customer tablolarında bulunan first_name sütunlarının tekrar eden KESİŞEN verileri (INTERSECT ALL ile)
+SELECT first_name FROM actor
+INTERSECT ALL
+SELECT first_name FROM customer;
+--6.actor tablosundaki first_name'lerden customer tablosunda bulunmayan tekrar eden veriler
+SELECT first_name FROM actor
+EXCEPT ALL
+SELECT first_name FROM customer;
